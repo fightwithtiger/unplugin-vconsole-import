@@ -2,7 +2,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/unplugin-vconsole-import?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-vconsole-import)
 
-Dynamically generate routes based on the pages that can be viewed by the role. Used it in vue、vue-router program.
+Use the function of VConsole in various environments. 
+Use in vite, webpack, rollup, esbuild
 
 ## Install
 
