@@ -1,15 +1,20 @@
+import { resolve } from 'path'
+import { promises as fs } from 'fs'
 import { describe, expect, test } from 'vitest'
+import fg from 'fast-glob'
 import { transform } from '../src/core'
 
 describe('fixtures', async () => {
-  const files = import.meta.glob('./fixtures/**/*.{vue,js,ts}', {
-    eager: true,
-    as: 'raw',
+  const root = resolve(__dirname, 'fixtures')
+  const files = await fg('*', {
+    cwd: root,
+    onlyFiles: true,
   })
 
-  for (const [id, code] of Object.entries(files)) {
-    test(id.replace(/\\/g, '/'), () => {
-      const exec = () => transform(code, id, { entry: id, config: { theme: 'dark' } })?.code
+  for (const id of files) {
+    test(id, async () => {
+      const code = await fs.readFile(resolve(root, id), 'utf-8')
+      const exec = () => transform(code, id, { entry: id, config: { theme: 'light' } })?.code
       if (id.includes('error')) {
         expect(exec).toThrowErrorMatchingSnapshot()
       }

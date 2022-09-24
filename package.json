@@ -5,6 +5,7 @@
   "description": "",
   "keywords": [
     "unplugin",
+    "vconsole",
     "vite",
     "webpack",
     "rollup",
