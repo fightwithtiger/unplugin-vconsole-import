@@ -10,11 +10,9 @@ export function transform(_source: string, id: string, options: UserOptions) {
   }
 
   const vConsoleImportDeclearation = `
-    /* eslint-disable */;
     import VConsole from 'vconsole';
     
     new VConsole(${JSON.stringify(config)});
-    /* eslint-enable */
     `
 
   s.prepend(vConsoleImportDeclearation)
