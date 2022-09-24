@@ -79,8 +79,7 @@
     "release": "bumpp --commit --push --tag && pnpm publish",
     "start": "esno src/index.ts",
     "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "pb": "pnpm publish --access public"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@babel/types": "^7.17.0",

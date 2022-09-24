@@ -15,7 +15,7 @@ Dynamically generate routes based on the pages that can be viewed by the role. U
 ```javascript
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import viteVConsole from 'unplugin-vconsole-import';
+import viteVConsole from 'unplugin-vconsole-import/vite';
 import * as path from 'path'
 
 // https://vitejs.dev/config/
