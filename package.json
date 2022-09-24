@@ -1,0 +1,104 @@
+{
+  "name": "unplugin-vconsole-import",
+  "version": "0.0.0",
+  "packageManager": "pnpm@6.32.3",
+  "description": "",
+  "keywords": [
+    "unplugin",
+    "vite",
+    "webpack",
+    "rollup",
+    "transform"
+  ],
+  "homepage": "https://github.com/fightwithtiger",
+  "bugs": {
+    "url": "https://github.com/fightwithtiger/unplugin-vconsole-import/issues"
+  },
+  "license": "MIT",
+  "author": "fightwithtiger <2284925818@qq.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fightwithtiger/unplugin-vconsole-import.git"
+  },
+  "funding": "https://github.com/fightwithtiger",
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./rollup": {
+      "types": "./dist/rollup.d.ts",
+      "require": "./dist/rollup.cjs",
+      "import": "./dist/rollup.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "require": "./dist/types.cjs",
+      "import": "./dist/types.js"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "require": "./dist/vite.cjs",
+      "import": "./dist/vite.js"
+    },
+    "./webpack": {
+      "types": "./dist/webpack.d.ts",
+      "require": "./dist/webpack.cjs",
+      "import": "./dist/webpack.js"
+    },
+    "./esbuild": {
+      "types": "./dist/esbuild.d.ts",
+      "require": "./dist/esbuild.cjs",
+      "import": "./dist/esbuild.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "play": "pnpm -C examples/vite-demo dev",
+    "build": "tsup src/*.ts --format cjs,esm --dts --splitting --clean && tsx scripts/postbuild.mts",
+    "lint": "eslint .",
+    "prepublishOnly": "pnpm build",
+    "release": "bumpp --commit --push --tag && pnpm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.17.0",
+    "@tegor/eslint-config": "^0.0.5",
+    "@types/node": "^17.0.23",
+    "bumpp": "^7.1.1",
+    "eslint": "^8.11.0",
+    "esno": "^0.14.1",
+    "fast-glob": "^3.2.12",
+    "pnpm": "^6.32.3",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.2.3",
+    "tsx": "^3.9.0",
+    "typescript": "^4.6.2",
+    "vite": "^3.1.0",
+    "vitest": "^0.23.1"
+  },
+  "dependencies": {
+    "magic-string": "^0.26.4",
+    "unplugin": "^0.9.6"
+  }
+}
