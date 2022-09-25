@@ -12,35 +12,53 @@ Use in vite, webpack, rollup, esbuild
 `pnpm install unplugin-vconsole-import -D`
 
 ## Usage
+- vite
 
 ```javascript
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
 import viteVConsole from 'unplugin-vconsole-import/vite';
-import * as path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    viteVConsole({
-      entry: path.resolve('src/main.ts'), // or you can use entry: [path.resolve('src/main.ts')]
-      enabled: true,
-      config: {
-        maxLogNumber: 1000,
-        theme: 'dark'
-      }
-    })
+    vitePlugin({
+      entry: resolve(__dirname, './src/main.ts'),
+      enabled: false,
+    }),
+  ],
+})
+
+```
+
+- webpack
+``` javascript
+// 引入插件
+import webpackVConsole from 'unplugin-vconsole-import/webpack';
+
+...
+
+{
+  ...
+  plugins: [
+    new webpackVConsole({
+      entry: resolve(__dirname, './src/main.ts'),
+      enabled: false,
+    }),
+    ...
   ]
-});
+  ...
+}
 ```
 
 ## Options
 ```javascript
 {
-  entry: string | string[]; // entry file require
+  entry: string | string[]; // entry file that you want to use vconsole
   enabled?: boolean;
-  config?: { // vconsole options
+  config?: { // vconsole's options
     defaultPlugins?: string[];
     onReady?: () => void;
     onClearLog?: () => void;
