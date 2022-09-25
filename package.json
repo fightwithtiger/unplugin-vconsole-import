@@ -1,6 +1,6 @@
 {
   "name": "unplugin-vconsole-import",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "packageManager": "pnpm@6.32.3",
   "description": "",
   "keywords": [
