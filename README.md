@@ -24,7 +24,7 @@ import viteVConsole from 'unplugin-vconsole-import/vite';
 export default defineConfig({
   plugins: [
     vue(),
-    vitePlugin({
+    viteVConsole({
       entry: resolve(__dirname, './src/main.ts'),
       enabled: false,
     }),
