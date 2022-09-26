@@ -77,7 +77,7 @@
   "sideEffects": false,
   "scripts": {
     "play": "pnpm -C examples/vite-demo dev",
-    "build": "tsup src/*.ts --format cjs,esm --dts --splitting --clean && tsx scripts/postbuild.mts",
+    "build": "tsup src/*.ts --format cjs,esm --dts --splitting --clean && esno scripts/postbuild.ts",
     "lint": "eslint .",
     "prepublishOnly": "pnpm build",
     "release": "bumpp --commit --push --tag && pnpm publish",
@@ -91,7 +91,7 @@
     "@types/node": "^17.0.23",
     "bumpp": "^7.1.1",
     "eslint": "^8.11.0",
-    "esno": "^0.14.1",
+    "esno": "^0.16.3",
     "fast-glob": "^3.2.12",
     "pnpm": "^6.32.3",
     "rimraf": "^3.0.2",
