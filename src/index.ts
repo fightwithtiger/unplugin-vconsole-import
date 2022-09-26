@@ -12,6 +12,10 @@ export default createUnplugin((options: UserOptions) => {
   return {
     name: 'unplugin-vconsole-import',
     transformInclude(id) {
+      const paths = id.split('\\')
+      if (paths.length > 1 && process.platform === 'win32') {
+        id = paths.join('/')
+      }
       return entryPath.includes(id)
     },
     transform(code, id) {

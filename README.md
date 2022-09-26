@@ -26,7 +26,7 @@ export default defineConfig({
     vue(),
     viteVConsole({
       entry: resolve(__dirname, './src/main.ts'),
-      enabled: false,
+      // enabled: false,
     }),
   ],
 })
@@ -36,16 +36,16 @@ export default defineConfig({
 - webpack
 ``` javascript
 // 引入插件
-import webpackVConsole from 'unplugin-vconsole-import/webpack';
+const webpackVConsole = require('unplugin-vconsole-import/webpack');
 
 ...
 
 {
   ...
   plugins: [
-    new webpackVConsole({
+    webpackVConsole({
       entry: resolve(__dirname, './src/main.ts'),
-      enabled: false,
+      // enabled: false,
     }),
     ...
   ]
