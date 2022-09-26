@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import fg from 'fast-glob'
 
 // fix cjs exports
-const files = await fg('*.js', {
+const files = await fg('*.cjs', {
   ignore: ['index.js', 'chunk-*'],
   absolute: true,
   cwd: resolve(process.cwd(), 'dist'),
